@@ -70,9 +70,128 @@ list.Without use max function'''
 # 	num.sort()
 # 	return num[-1]
 
-	
+
 # num = [1,66,7,8,33,99,87,1,2,3,4,5]
 # print(max_num(num))
+
+
+
+
+'''Blot'''
+
+import random
+
+def calod():
+	""" stexcumenq kalod xaxaqarterov """
+
+	mast = ('♣ ', '♦ ', '♥ ', '♠ ')
+	cards = ('9','10','J','Q','K','T')
+	res = []
+	for i in mast:
+		for j in cards:
+			x=i+j
+			res.append(x)
+	random.shuffle(res)
+	return res	
+
+# print(calod())
+
+
+def user():
+	""" talis enq userin xaxaqarter """
+
+	global res
+	user_cards = []
+	res = calod()
+	for i in range(5):
+		x = res.pop()	
+		user_cards.append(x)
+	user_cards.sort()		
+	return user_cards	
+
+
+print('User-- ',user())
+
+
+def pc():
+	""" talis enq pc in xaxaqarter """
+
+	pc_cards = []
+	for i in range(5):
+		x = res.pop()	
+		pc_cards.append(x)
+	pc_cards.sort()		
+	return pc_cards	
+
+
+print('\nPc-- ',pc())
+
+
+def tramp_card():
+
+	x = res.pop()
+	return x
+
+
+
+
+
+def new_card():
+	q = tramp_card()
+
+	print('\ntramp card-- ',q)
+	useri = input('Want you take tramp card ') == 'y'
+	if useri:
+		c = user()
+		y = pc()
+		c.append(q)
+		for i in range(2):
+			x = res.pop()
+			c.append(x)
+		print('user',c)
+		for i in range(3):
+			x = res.pop()
+			y.append(x)
+		print('pc',y)	
+	else:
+		pci = input('Want pc take tramp card ') == 'y'
+		if pci:
+			c = user()
+			y = pc()
+			y.append(q)
+			for i in range(2):
+				x = res.pop()
+				y.append(x)
+			print('pc',y)
+			for i in range(3):
+				x = res.pop()
+				c.append(x)
+			print('user',c)
+
+
+new_card()
+# print(user())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
